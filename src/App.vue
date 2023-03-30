@@ -44,17 +44,15 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    NavBar:() => import("./components/MyNavBar.vue")
   },
 
-  data: () => ({
-    //
-  }),
+  data: () => {
+    return {};
+  },
 };
 </script>
