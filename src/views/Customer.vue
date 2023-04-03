@@ -1,12 +1,12 @@
 <template>
-    <v-container>
+  <v-container>
     <v-data-table
-      v-model:items-per-page="itemsPerPage"
       :headers="headers"
       :items="customers"
       sort-by="id"
-      class="elevation-1"
-    ><template v-slot:top>
+      class="elevation-3"
+    >
+      <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>CUSTOMER LIST</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
@@ -84,9 +84,9 @@
     </v-data-table>
   </v-container>
 </template>
-
 <script>
 export default {
+  name: 'TodoItem',
   data: () => ({
     dialog: false,
     headers: [
@@ -104,6 +104,7 @@ export default {
         value: "actions",
       },
     ],
+    companys: [],
     customers: [],
     customer: {
       id: null,
@@ -113,13 +114,18 @@ export default {
       password: "",
       gender: "",
       birthday: "",
+      company: "",
     },
     editedItem: {},
   }),
   methods: {
     async getCustomerList() {
       const response = await this.axios.get("http://localhost:8080/customer");
-      this.customers = response.data._embedded.customers;
+      this.customers = response.data._embedded.customer;
+    },
+    async getCompanyList() {
+      const response = await this.axios.get("http://localhost:8080/company");
+      this.companys = response.data._embedded.companys;
     },
     async addCustomer() {
       await this.axios.post("http://localhost:8080/customer/", this.editedItem);
@@ -157,6 +163,7 @@ export default {
   },
   mounted() {
     this.getCustomerList();
+    this.getCompanyList();
   },
 };
 </script>
