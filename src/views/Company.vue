@@ -1,4 +1,5 @@
-<template>
+<mytemplate>
+
     <v-container>
     <v-data-table
       :headers="headers"
@@ -64,12 +65,16 @@
       </template>
     </v-data-table>
   </v-container>
-</template>
+
+</mytemplate>
 
 <script>
+
 export default {
-  data: () => ({
+
     name: 'TodoItem',
+    data: () => ({
+    
     dialog: false,
     headers: [
       { text: "Id", value: "id" },
@@ -135,6 +140,11 @@ export default {
     this.getCompanyList();
   },
 };
+
 </script>
+
 <style scoped>
+
 </style>
+
+  

@@ -40,14 +40,15 @@
             <v-icon small class="mr-2" @click="$emit('editData', item)">
               mdi-pencil
             </v-icon>
-            <v-icon small @click="deleteSchool(item.id)"> mdi-delete </v-icon>
+            <v-icon small @click="deleteCompany(item.id)"> mdi-delete </v-icon>
           </template>
         </v-data-table>
       </v-card>
     </v-container>
   </template>
   
-  <script>
+<script>
+
 export default {
   name: 'TodoItem',
   data() {
@@ -93,10 +94,11 @@ export default {
         );
       this.loading = false;
     },
-    async deleteSchool(id) {
+    async deleteCompany(id) {
       await this.axios.delete(this.deleteUrl + id);
       this.getList();
     },
   },
 };
+
 </script>

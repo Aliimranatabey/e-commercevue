@@ -1,23 +1,21 @@
 <template>
   <v-app>
     <NavigationDrawers />
-    <DatatableVuetify />
+    <Datatable />
   </v-app>
 </template>
 
 <script>
-import DatatableVuetify from "./components/Datatable.vue";
-import NavigationDrawers from "./components/NavigationDrawers";
+import Datatable from "./components/Datatable.vue";
+import NavigationDrawers from "./components/NavigationDrawers.vue";
 export default {
-  name: 'App',
-
+  name: "App",
   components: {
-    DatatableVuetify,
-    NavigationDrawers
+    NavigationDrawers,
+    Datatable,
   },
-
-  data: () => {
-    return {};
-  },
+  data: () => ({
+    //
+  }),
 };
 </script>
