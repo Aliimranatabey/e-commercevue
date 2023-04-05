@@ -109,7 +109,7 @@ export default {
     async updateCompany() {
       console.log(this.editedItem);
       await this.axios.put(
-        "http://localhost:8080/company/" + this.editedItem.id,
+        "http://localhost:8080/company" + this.editedItem.id,
         this.editedItem
       );
       this.getCompanyList();
